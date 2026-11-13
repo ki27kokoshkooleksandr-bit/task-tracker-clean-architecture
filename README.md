@@ -19,42 +19,35 @@
 
 Кожна feature-гілка створюється від `develop` і повертається в неї через pull request
 з код-рев'ю. Повідомлення комітів оформлюються за конвенцією Conventional Commits.
-┌─────────────────────────────────────┐
 
-│         Presentation (CLI)          │
 
-│  Program.cs — DI + консольний UI    │
+         Presentation (CLI)          
+  Program.cs — DI + консольний UI    
 
-└─────────────────┬───────────────────┘
 
-│ залежить від
+ залежить від
 
-┌─────────────────▼───────────────────┐
 
-│           Application               │
 
-│  CreateTask / CompleteTask / List   │
+           Application               
 
-└─────────────────┬───────────────────┘
+  CreateTask / CompleteTask / List   
 
-│ залежить від інтерфейсів
 
-┌─────────────────▼───────────────────┐
 
-│             Domain                  │
+ залежить від інтерфейсів
 
-│  TaskItem + ITaskRepository         │
 
-└─────────────────────────────────────┘
+            Domain        
+            
+ TaskItem + ITaskRepository         
 
-▲
 
-│ реалізує
+ реалізує
 
-┌─────────────────┴───────────────────┐
 
-│         Infrastructure              │
 
-│  JsonTaskRepository / InMemory      │
+         Infrastructure             
 
-└─────────────────────────────────────┘
+ JsonTaskRepository / InMemory     
+
