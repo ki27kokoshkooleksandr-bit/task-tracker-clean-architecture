@@ -3,6 +3,8 @@ namespace TaskTracker.Domain.Entities;
 /// <summary>Завдання — центральна сутність предметної області.</summary>
 public class TaskItem
 {
+    public const int MaxTitleLength = 100;
+
     public Guid Id { get; private set; }
     public string Title { get; private set; }
     public DateTime CreatedAt { get; private set; }
@@ -13,6 +15,8 @@ public class TaskItem
     {
         if (string.IsNullOrWhiteSpace(title))
             throw new ArgumentException("Назва завдання не може бути порожньою.", nameof(title));
+        if (title.Trim().Length > MaxTitleLength)
+            throw new ArgumentException($"Назва завдання не може бути довшою за {MaxTitleLength} символів.", nameof(title));
 
         Id = Guid.NewGuid();
         Title = title.Trim();
