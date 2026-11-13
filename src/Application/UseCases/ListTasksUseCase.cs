@@ -13,5 +13,6 @@ public class ListTasksUseCase
     public IReadOnlyList<TaskItem> Execute(bool onlyActive = false) =>
         _repository.GetAll()
                    .Where(t => !onlyActive || !t.IsCompleted)
+                   .OrderBy(t => t.CreatedAt)
                    .ToList();
 }
